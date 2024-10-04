@@ -226,6 +226,8 @@ openssl*)
 		DEPS=""
 		use_custom_openssl $1
 	elif test "$TEST" = "openssl-awslc"; then
+		CONFIG="${CONFIG} --enable-drbg"
+		TESTS_PLUGINS="${TESTS_PLUGINS} drbg"
 		DEPS="cmake ninja-build golang"
 		use_custom_openssl $1
 	elif system_uses_openssl3; then
